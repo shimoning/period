@@ -1,0 +1,30 @@
+{
+    "name": "shimoning/period",
+    "version": "0.1.0",
+    "description": "締め日を指定して期間を計算する",
+    "minimum-stability": "stable",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shimon Haga",
+            "email": "shimon.haga@gmail.com"
+        }
+    ],
+    "keywords": [
+        "period",
+        "closing",
+        "date"
+    ],
+    "require": {
+        "nesbot/carbon": "^2.46"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shimoning\\Period\\": "src/"
+        }
+    },
+    "require-dev": {
+        "psy/psysh": "@stable"
+    }
+}
