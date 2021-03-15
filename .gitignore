@@ -5,4 +5,4 @@ composer.phar
 Thumbs.db
 
 *.log
-.env
+.phpunit.result.cache

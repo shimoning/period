@@ -1,6 +1,6 @@
 {
     "name": "shimoning/period",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "締め日を指定して期間を計算する",
     "minimum-stability": "stable",
     "type": "library",
