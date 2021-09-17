@@ -1,6 +1,6 @@
 {
     "name": "shimoning/period",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "description": "締め日を指定して期間を計算する",
     "minimum-stability": "stable",
     "type": "library",
@@ -8,7 +8,7 @@
     "authors": [
         {
             "name": "Shimon Haga",
-            "email": "shimon.haga@gmail.com"
+            "email": "shimon.haga@shimoning.com"
         }
     ],
     "keywords": [
