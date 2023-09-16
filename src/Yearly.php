@@ -18,7 +18,6 @@ class Yearly
     {
         // 終了日の検定
         $thisMonthDate = Carbon::create($year, $month, 1);  // 当月
-        echo $thisMonthDate->format('Y-m-d');
         $lastDayOfThisMonth = $thisMonthDate->lastOfMonth()->day;   // 当月の最終日
         $endDay = $closingDay > $lastDayOfThisMonth
             ? $lastDayOfThisMonth

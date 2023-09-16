@@ -1,6 +1,6 @@
 {
     "name": "shimoning/period",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "description": "締め日を指定して期間を計算する",
     "minimum-stability": "stable",
     "type": "library",
@@ -19,13 +19,16 @@
     "require": {
         "nesbot/carbon": "^2.0"
     },
+    "require-dev": {
+        "psy/psysh": "@stable",
+        "phpunit/phpunit": "^9.5"
+    },
     "autoload": {
         "psr-4": {
             "Shimoning\\Period\\": "src/"
         }
     },
-    "require-dev": {
-        "psy/psysh": "@stable",
-        "phpunit/phpunit": "^9.5"
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }
