@@ -35,4 +35,30 @@ class Monthly
             'end' => Carbon::create($year, $month, $endDay),
         ];
     }
+
+    /**
+     * 曜日を指定して期間の開始日と終了日を取得する
+     *
+     * @param Carbon $start
+     * @param Carbon $end
+     * @param int|null $dayOfWeek
+     * @return [ Carbon, Carbon ]
+     */
+    static public function weeklyBased(
+        Carbon $start,
+        Carbon $end,
+        ?int $dayOfWeek = 0
+    ) {
+        $carryoverDays = $dayOfWeek < $start->dayOfWeek
+            ? $start->dayOfWeek - $dayOfWeek
+            : 7 - ($dayOfWeek - $start->dayOfWeek);
+        $rollbackDays = $dayOfWeek < $end->dayOfWeek
+            ? $end->dayOfWeek - $dayOfWeek + 1
+            : 8 - ($dayOfWeek - $end->dayOfWeek);
+
+        return [
+            'start' => $start->clone()->subDays($carryoverDays),
+            'end' => $end->clone()->subDays($rollbackDays),
+        ];
+    }
 }
