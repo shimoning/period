@@ -124,6 +124,23 @@ class MonthlyTest extends TestCase
         $this->assertEquals(26, $period['end']->day);
     }
 
+    public function test_weeklyBased_tuesday()
+    {
+        $period = Monthly::weeklyBased(
+            Carbon::create(2020, 4, 1),     // 水
+            Carbon::create(2020, 4, 30),    // 木
+            2                               // 火曜日基準
+        );
+
+        $this->assertEquals(2020, $period['start']->year);
+        $this->assertEquals(3, $period['start']->month);
+        $this->assertEquals(31, $period['start']->day);
+
+        $this->assertEquals(2020, $period['end']->year);
+        $this->assertEquals(4, $period['end']->month);
+        $this->assertEquals(27, $period['end']->day);
+    }
+
     public function test_weeklyBased_wednesday()
     {
         $period = Monthly::weeklyBased(
@@ -139,6 +156,40 @@ class MonthlyTest extends TestCase
         $this->assertEquals(2020, $period['end']->year);
         $this->assertEquals(4, $period['end']->month);
         $this->assertEquals(28, $period['end']->day);
+    }
+
+    public function test_weeklyBased_thursday()
+    {
+        $period = Monthly::weeklyBased(
+            Carbon::create(2020, 4, 1),     // 水
+            Carbon::create(2020, 4, 30),    // 木
+            4                               // 木曜日基準
+        );
+
+        $this->assertEquals(2020, $period['start']->year);
+        $this->assertEquals(3, $period['start']->month);
+        $this->assertEquals(26, $period['start']->day);
+
+        $this->assertEquals(2020, $period['end']->year);
+        $this->assertEquals(4, $period['end']->month);
+        $this->assertEquals(29, $period['end']->day);
+    }
+
+    public function test_weeklyBased_friday()
+    {
+        $period = Monthly::weeklyBased(
+            Carbon::create(2020, 4, 1),     // 水
+            Carbon::create(2020, 4, 30),    // 木
+            5                               // 金曜日基準
+        );
+
+        $this->assertEquals(2020, $period['start']->year);
+        $this->assertEquals(3, $period['start']->month);
+        $this->assertEquals(27, $period['start']->day);
+
+        $this->assertEquals(2020, $period['end']->year);
+        $this->assertEquals(4, $period['end']->month);
+        $this->assertEquals(30, $period['end']->day);
     }
 
     public function test_weeklyBased_saturday()

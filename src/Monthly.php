@@ -41,7 +41,7 @@ class Monthly
      *
      * @param Carbon $start
      * @param Carbon $end
-     * @param int|null $dayOfWeek
+     * @param int|null $dayOfWeek (0: sunday, 1: monday ..., 6: saturday)
      * @return [ Carbon, Carbon ]
      */
     static public function weeklyBased(
@@ -55,10 +55,15 @@ class Monthly
         $rollbackDays = $dayOfWeek < $end->dayOfWeek
             ? $end->dayOfWeek - $dayOfWeek + 1
             : 8 - ($dayOfWeek - $end->dayOfWeek);
+        if ($rollbackDays >= 7) {
+            $rollbackDays -= 7;
+        }
 
         return [
             'start' => $start->clone()->subDays($carryoverDays),
             'end' => $end->clone()->subDays($rollbackDays),
+            'carryover_days' => $carryoverDays,
+            'rollback_days' => $rollbackDays,
         ];
     }
 }
