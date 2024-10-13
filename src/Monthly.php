@@ -49,7 +49,7 @@ class Monthly
         Carbon $end,
         ?int $dayOfWeek = 0
     ) {
-        $carryoverDays = $dayOfWeek < $start->dayOfWeek
+        $carryoverDays = $dayOfWeek <= $start->dayOfWeek
             ? $start->dayOfWeek - $dayOfWeek
             : 7 - ($dayOfWeek - $start->dayOfWeek);
         $rollbackDays = $dayOfWeek < $end->dayOfWeek
